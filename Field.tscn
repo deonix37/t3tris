@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8sru188brung"]
+
+[ext_resource type="Script" path="res://Field.gd" id="2"]
+
+[node name="Field" type="Node2D"]
+script = ExtResource("2")
+metadata/_edit_group_ = true
+
+[node name="Grid" type="Node2D" parent="."]
+z_index = 1
+
+[node name="StepTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="draw" from="Grid" to="." method="_on_grid_draw"]
+[connection signal="timeout" from="StepTimer" to="." method="_on_step_timer_timeout"]
